@@ -85,10 +85,19 @@ function mostrar()
 		continuar = prompt("Quiere continuar ingresando datos? (si / no)");
 	} while (continuar == "si");
 
-	promedio = acumEdadRusa / contRusa; //a
-
+	if (contRusa == 0){
+		promedio = 0
+	} else {
+		promedio = acumEdadRusa / contRusa; //a
+	}
+	
+	if(contAmericana == 0) {
+		porcentaje = 0; 
+	} else {
 	porcentaje = contAmericanaAdul * 100 / contAmericana; //c
 	porcentaje = porcentaje.toFixed(1);
+	}
+
 
 	porcentajeDosis = contVacunadosDos * 100 / contVacunados; //d
 	porcentajeDosis = porcentajeDosis.toFixed(1);
@@ -101,7 +110,7 @@ function mostrar()
 		vacunaMenosInoculada = "Americana";
 	}
 
-	document.write("a. El promedio de edad de los que se vacunaron con la vacuna rusa: " + promedio + "<br>");
+	document.write("a. El promedio de edad de los que se vacunaron con la vacuna rusa: " + promedio + " años. <br>");
 	document.write("b. Nombre de la mujer con mas edad: " + nombreMujerMayor + ", con la vacuna: " + vacunaMujerMayor + "<br>");
 	document.write("c. De las personas que recibieron la vacuna americana, el " + porcentaje + "% es mayor de edad. <br>")
 	document.write("d. Porcentaje de los que estan vacunados con 2 dosis: " + porcentajeDosis + "% del total de vacunados. <br>");
